@@ -7,10 +7,13 @@
   /**
    * Dispatch page request
    */
-  try {
-    $Dispatcher = new Dispatcher($_SERVER['REQUEST_URI']);
+  try
+  {
+    $Dispatcher = new Dispatcher( $_SERVER['REQUEST_URI'] );
     $Dispatcher->render();
-  } catch (Exception $e) {
+  }
+  catch ( Exception $e )
+  {
     throw $e;
   }
 ?>
