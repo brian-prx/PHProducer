@@ -10,7 +10,7 @@
   try
   {
     $Dispatcher = new Dispatcher( $_SERVER['REQUEST_URI'] );
-    $Dispatcher->render();
+    $Dispatcher->dispatch();
   }
   catch ( Exception $e )
   {

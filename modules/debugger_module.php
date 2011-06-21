@@ -3,7 +3,7 @@
   {
     var $vars = array();
     
-    function addvar( $var )
+    function add_var( $var )
     {
       $this->vars[] = $var;
       return true;
