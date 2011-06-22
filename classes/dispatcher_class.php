@@ -16,6 +16,8 @@
     
     var $Router = null;
     
+    var $Debugger = null;
+    
     /**
      * 
      * Dispatcher constructor
@@ -27,6 +29,8 @@
       $this->url = $url;
       
       $this->Router = new Router();
+      
+      $this->Debugger = new Debugger( DEBUG_LEVEL );
     }
     
     /**
@@ -36,15 +40,12 @@
      */
     function dispatch()
     {
-      if ( file_exists( ROOT_DIR . CNFG_DIR . '/routes.php' ) )
-        include_once ROOT_DIR . CNFG_DIR . '/routes.php';
       try
       {
-        $this->actions = $this->Router->parse( $this->url );
+        $this->actions = $this->Router->search( $this->Router->parse( $this->url ) );
         
-        $Debugger = new Debugger();
-        $Debugger->add_var($this->actions);
-        $Debugger->debug();
+        $this->Debugger->add_var($this->actions);
+        $this->Debugger->debug();
       }
       catch( Exception $e )
       {

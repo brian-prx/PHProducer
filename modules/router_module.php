@@ -12,6 +12,25 @@
   {
     var $name = 'Router Module';
     
+    var $routes = array();
+    
+    /**
+     * 
+     * Router constructor
+     * 
+     */
+    function __construct()
+    {
+      if ( file_exists( ROOT_DIR . CNFG_DIR . '/routes.php' ) )
+        include_once ROOT_DIR . CNFG_DIR . '/routes.php';
+        
+      if ( !empty( $routes ) )
+      {
+        foreach ( $routes as $route )
+          $this->routes[] = $route;
+      }
+    }
+    
     /**
      * 
      * Parse URL for controller, method and parameters
@@ -34,7 +53,7 @@
         {
           $actions = array(
             'controller' => ( !empty( $components[0] ) ) ? $components[0] : null,
-            'method' => ( !empty( $components[1] ) ) ? $components[1] : null,
+            'method' => ( !empty( $components[1] ) ) ? $components[1] : 'index',
             'params' => ( !empty( $components[2] ) ) ? $components[2] : null
           );
         }
@@ -47,6 +66,27 @@
       }
             
       return $actions;
+    }
+    
+    /**
+     * 
+     * Search for matching route
+     * 
+     * @param array $actions
+     */
+    function search( $actions )
+    {
+      try
+      {
+        if ( !empty( $actions ) )
+        {
+          return $actions;
+        }
+      }
+      catch( Exception $e )
+      {
+        throw $e;
+      }
     }
     
     /**
