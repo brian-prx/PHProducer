@@ -14,13 +14,11 @@
     
     var $actions = array();
     
-    var $Router = null;
-    
-    var $Debugger = null;
+    var $modules = array( 'Router', 'Debugger' );
     
     /**
      * 
-     * Dispatcher constructor
+     * Constructor
      * 
      * @param string $url
      */
@@ -28,9 +26,7 @@
     {
       $this->url = $url;
       
-      $this->Router = new Router();
-      
-      $this->Debugger = new Debugger( DEBUG_LEVEL );
+      $this->load_modules();
     }
     
     /**
@@ -49,10 +45,7 @@
           
         // Execute the controller's function
 		$results = $controller->{$this->actions['method']}( $this->actions['params'] );
-          
-        $this->Debugger->add_var( $controller );
-        $this->Debugger->add_var( $this->actions );
-
+        
         /**
          * Load the view file content
          */
@@ -97,6 +90,23 @@
 		}
 		else
 			throw new Exception( 'Controller ' . $this->actions['controller'] . ' does not exists. Create it in the controllers/ directory.' );
+	}
+	
+	/**
+	 * 
+	 * Instantiate modules
+	 * 
+	 */
+	private function load_modules()
+	{
+	  if ( !empty( $this->modules ) )
+	  {
+	    foreach ( $this->modules as $Module )
+	    {
+	      if ( class_exists( $Module ) )
+	        $this->{$Module} = new $Module();
+	    }
+	  }
 	}
   }
 ?>

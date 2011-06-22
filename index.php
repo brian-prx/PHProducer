@@ -11,8 +11,6 @@
   {
     $Dispatcher = new Dispatcher( $_SERVER['REQUEST_URI'] );
     $Dispatcher->dispatch();
-    
-    $Dispatcher->Debugger->debug();
   }
   catch ( Exception $e )
   {

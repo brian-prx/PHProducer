@@ -1,1 +1,48 @@
 @CHARSET "ISO-8859-1";
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+div#header {
+	
+}
+
+div#left_bar {
+	float: left;
+}
+
+div#content {
+	width: 80%;
+	float: left;
+}
+
+.rounded {
+	padding: 1em;
+	margin: 10px;
+	-webkit-border-radius: .7em;
+	-moz-border-radius: .7em;
+	border-radius: .7em;
+	-webkit-box-shadow: 5px 5px 5px #999;
+	box-shadow: 5px 5px 5px #bbb;
+}
+
+.gradient {
+	background-color: #F07575; /* fallback color if gradients are not supported */
+	background-image: -webkit-gradient(linear, left top, left bottom, from(hsl(0, 100%, 100%)), to(#CCC8C9)); 
+	background-image: -webkit-linear-gradient(top, hsl(0, 100%, 100%), #CCC8C9); 
+	background-image:    -moz-linear-gradient(top, hsl(0, 100%, 100%), #CCC8C9); 
+	background-image:     -ms-linear-gradient(top, hsl(0, 100%, 100%), #CCC8C9); 
+	background-image:      -o-linear-gradient(top, hsl(0, 100%, 100%), #CCC8C9); 
+	background-image:         linear-gradient(top, hsl(0, 100%, 100%), #CCC8C9); /* standard, but currently unimplemented */
+}

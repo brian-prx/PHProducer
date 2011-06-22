@@ -20,7 +20,7 @@
      * 
      * @param int $level
      */
-    function __construct( $level )
+    function __construct( $level = null )
     {
       $this->set_debug_level( $level );
     }

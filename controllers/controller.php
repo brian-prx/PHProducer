@@ -10,6 +10,8 @@
   {
     var $name = 'Controller';
     
+    var $modules = array();
+    
     /**
      * 
      * Controller constructor
