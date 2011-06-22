@@ -58,7 +58,11 @@
           );
         }
         else
-          $actions = array();
+          $actions = array(
+            'controller' => 'Pages',
+            'method' => 'display',
+            'params' => 'home'
+          );
       }
       catch( Exception $e )
       {
@@ -97,7 +101,17 @@
      */
     function redirect( $url )
     {
-      
+      try
+      {
+        if ( false === strstr( $url, ROOT_DIR ) ) $url = ROOT_DIR . $url;
+        
+        if ( $url !== null )
+          header( 'Location: ' . $url, 302 );
+      }
+      catch( Exception $e )
+      {
+        throw $e;
+      }
     }
   }
 ?>

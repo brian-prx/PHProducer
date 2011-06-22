@@ -12,8 +12,8 @@
     if ( file_exists( 'classes/' . $class . '.php' ) ) include_once 'classes/' . $class . '.php';
     if ( file_exists( 'controllers/' . $class . '_controller.php' ) ) include_once 'controllers/' . $class . '_controller.php';
     if ( file_exists( 'controllers/' . $class . '.php' ) ) include_once 'controllers/' . $class . '.php';
-    if ( file_exists( 'interfaces/' . $class . '_interface.php' ) ) include_once 'interfaces/' . $class . '_interface.php';
-    if ( file_exists( 'interfaces/' . $class . '.php' ) ) include_once 'interfaces/' . $class . '.php';
+    if ( file_exists( 'interfaces/' . substr( $class, 1 ) . '_interface.php' ) ) include_once 'interfaces/' . substr( $class, 1 ) . '_interface.php';
+    if ( file_exists( 'interfaces/' . substr( $class, 1 ) . '.php' ) ) include_once 'interfaces/' . substr( $class, 1 ) . '.php';
     if ( file_exists( 'modules/' . $class . '_module.php' ) ) include_once 'modules/' . $class . '_module.php';
     if ( file_exists( 'modules/' . $class . '.php' ) ) include_once 'modules/' . $class . '.php';
   }
