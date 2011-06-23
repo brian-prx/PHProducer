@@ -21,7 +21,8 @@
       switch ( $page )
       {
         case 'cpanel':
-          $results = array( 'db_link' => $this->Mysql->db_link, 'bar' => 'test' );
+          $results['mysql_db'] = ( $this->Mysql->db_exists( $this->Mysql->db_name ) ) ? $this->Mysql->db_name : false;
+          $results = array_merge( $results, array( 'db_link' => $this->Mysql->db_link ) );
           break;
           
         default:

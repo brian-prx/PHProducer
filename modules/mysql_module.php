@@ -47,10 +47,19 @@
         $this->db_link = mysql_connect( $this->db_host, $this->db_user, $this->db_pass );
         
         if ( is_resource( $this->db_link ) && !empty( $this->db_name ) )
-        {
-          if ( mysql_select_db( $this->db_name, $this->db_link ) ) return true;
-          else throw new Exception( 'Could not select database: ' . $this->db_name );
-        }
+          if ( mysql_select_db( $this->db_name, $this->db_link ) );
+      }
+      catch( Exception $e )
+      {
+        throw $e;
+      }
+    }
+    
+    function db_exists( $name )
+    {
+      try
+      {
+        return mysql_select_db( $name, $this->db_link );
       }
       catch( Exception $e )
       {

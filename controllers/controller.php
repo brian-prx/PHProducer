@@ -36,7 +36,7 @@
      * Custom __toString method
      * 
      */
-    function __to_string()
+    function __toString()
     {
       return $this->name;
     }

@@ -58,7 +58,7 @@
         /**
          * Execute the controller's action
          */
-		${$controller->__to_string()} = $controller->{$this->actions['method']}( $this->actions['params'] );
+		${$controller->__toString()} = $controller->{$this->actions['method']}( $this->actions['params'] );
 
         /**
          * Load the view file content
