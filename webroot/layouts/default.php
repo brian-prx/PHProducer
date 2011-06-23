@@ -1,7 +1,7 @@
 <html>
   <head>
   	<title>Default Layout</title>
-    <link rel="stylesheet" type="text/css" href="webroot/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo ROOT_DIR; ?>webroot/css/default.css" />
   </head>
   <body>
     <div id="wrapper">

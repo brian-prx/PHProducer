@@ -1,6 +1,6 @@
 <?php
   interface IModule
   {
-    function load();
+    static function load( $Module );
   }
 ?>

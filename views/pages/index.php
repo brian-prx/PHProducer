@@ -1,2 +1,1 @@
-<?php
-  echo 'Index';
+<h2>Pages index</h2>

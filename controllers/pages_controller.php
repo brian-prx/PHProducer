@@ -18,8 +18,21 @@
      */
     function display( $page )
     {
+      switch ( $page )
+      {
+        case 'cpanel':
+          $results = array( 'db_link' => $this->Mysql->db_link, 'bar' => 'test' );
+          break;
+          
+        default:
+          $results = array();
+      }
+      
       if ( file_exists( 'views/pages/' . $page . '.php' ) )
-        return file_get_contents( 'views/pages/' . $page . '.php' );
+        $this->View->set_view_file( 'views/pages/' . $page . '.php' );
+        
+      return $results;
     }
+    
   }
 ?>

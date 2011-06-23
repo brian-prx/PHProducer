@@ -10,7 +10,9 @@
   {
     var $name = 'Controller';
     
-    var $modules = array();
+    var $modules = array( 'Router', 'Debugger', 'Mysql' );
+    
+    var $View = null;
     
     /**
      * 
@@ -19,7 +21,34 @@
      */
     function __construct()
     {
+      $this->View = new View();
       
+      if ( !empty( $this->modules ) )
+        foreach ( $this->modules as $Module)
+        {
+          if ( class_exists( $Module ) )
+            $this->{$Module} = Module::load( $Module );
+        }
+    }
+    
+    /**
+     * 
+     * Custom __toString method
+     * 
+     */
+    function __to_string()
+    {
+      return $this->name;
+    }
+    
+    /**
+     * 
+     * Index 
+     * 
+     */
+    function index()
+    {
+      $this->View->set_view_file( 'views/' . strtolower( $this->name ) . '/index.php' );
     }
   }
 ?>

@@ -67,7 +67,7 @@
      * 
      * Search for matching route
      * 
-     * @param array $actions
+     * @param string $url
      */
     function search( $url )
     {

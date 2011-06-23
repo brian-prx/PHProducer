@@ -3,9 +3,9 @@
   {
     var $name = 'Module';
     
-    function load()
+    static function load( $Module )
     {
-      
+      return new $Module();
     }
   }
 ?>
