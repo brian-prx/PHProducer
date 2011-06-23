@@ -21,14 +21,11 @@
      */
     function __construct()
     {
-      if ( file_exists( ROOT_DIR . CNFG_DIR . '/routes.php' ) )
-        include_once ROOT_DIR . CNFG_DIR . '/routes.php';
+      if ( file_exists( 'config/routes.php' ) )
+        include_once 'config/routes.php';
         
       if ( !empty( $routes ) )
-      {
-        foreach ( $routes as $route )
-          $this->routes[] = $route;
-      }
+        $this->routes = $routes;
     }
     
     /**
@@ -41,14 +38,14 @@
     {
       try
       {
+        /**
+         * Is this root '/'?
+         */
         if ( strlen( ROOT_DIR ) > 1 )
           $url = str_replace( ROOT_DIR , '', $url );
-        
-        if ( strlen( $url ) )
-          $components = explode( '/', $url );
-        else
-          $components = array();
-        
+
+        $components = explode( '/', $url );
+
         if ( !empty( $components ) )
         {
           $actions = array(
@@ -57,12 +54,6 @@
             'params' => ( !empty( $components[2] ) ) ? $components[2] : null
           );
         }
-        else
-          $actions = array(
-            'controller' => 'Pages',
-            'method' => 'display',
-            'params' => 'home'
-          );
       }
       catch( Exception $e )
       {
@@ -78,19 +69,30 @@
      * 
      * @param array $actions
      */
-    function search( $actions )
+    function search( $url )
     {
+      $url = str_replace( ROOT_DIR, '/', $url);
+
       try
       {
-        if ( !empty( $actions ) )
+        if ( !empty( $url ) )
         {
-          return $actions;
+          foreach ( $this->routes as $route => $values )
+          {
+            if ( $route === $url ) {
+              $actions['controller'] = $values['controller'];
+              $actions['method'] = $values['method'];
+              $actions['params'] = $values['params'];
+            }
+          }
         }
       }
       catch( Exception $e )
       {
         throw $e;
       }
+      
+      return ( empty( $actions ) ) ? false : $actions;
     }
     
     /**

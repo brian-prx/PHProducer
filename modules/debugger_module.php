@@ -12,7 +12,7 @@
   {
     var $vars = array();
     
-    var $debug_level = null;
+    var $debug_level = 1;
     
     /**
      * 

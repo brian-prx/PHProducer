@@ -38,12 +38,22 @@
     {
       try
       {
-        $this->actions = $this->Router->search( $this->Router->parse( $this->url ) );
+        /**
+         * Get current request actions and search for custom route
+         */
+        $results = $this->Router->search( $this->url );
+        $this->actions = ( !empty( $results ) ) ? $results : $this->Router->parse( $this->url );
         
+        $this->Debugger->add_var( $this->actions );
+        /**
+         * Create the controller
+         */
         if ( !empty( $this->actions ) )
           $controller = $this->__getController();
           
-        // Execute the controller's function
+        /**
+         * Execute the controller's action
+         */
 		$results = $controller->{$this->actions['method']}( $this->actions['params'] );
         
         /**

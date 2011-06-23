@@ -15,21 +15,33 @@ a:hover {
 }
 
 div#header {
-	
+	clear: both;
+}
+
+div#left {
+	float: left;
+	width: 10%;
+}
+
+div#right {
+	float: right;
+	width: 90%;
 }
 
 div#left_bar {
-	float: left;
+	margin-right: 10px;
 }
 
 div#content {
-	width: 80%;
-	float: left;
+	padding: 1em;
+}
+
+div#footer {
+	clear:both;
 }
 
 .rounded {
 	padding: 1em;
-	margin: 10px;
 	-webkit-border-radius: .7em;
 	-moz-border-radius: .7em;
 	border-radius: .7em;
@@ -45,4 +57,5 @@ div#content {
 	background-image:     -ms-linear-gradient(top, hsl(0, 100%, 100%), #CCC8C9); 
 	background-image:      -o-linear-gradient(top, hsl(0, 100%, 100%), #CCC8C9); 
 	background-image:         linear-gradient(top, hsl(0, 100%, 100%), #CCC8C9); /* standard, but currently unimplemented */
+	margin: 10px 0;
 }
