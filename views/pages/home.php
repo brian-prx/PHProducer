@@ -14,4 +14,3 @@ Suspendisse potenti. Nullam quis lacinia orci. Aenean venenatis, diam nec mollis
 <p>
 Praesent ante libero, cursus sed faucibus vel, pharetra eget enim. Ut facilisis tristique odio, ut commodo velit ornare eu. Sed et purus sit amet ante suscipit bibendum eget id mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec varius dolor. Sed pulvinar facilisis felis, vulputate tincidunt dui porttitor non. Fusce dolor massa, dictum a lobortis at, sagittis et elit. Praesent bibendum eros ut nunc commodo ut vehicula massa lobortis. Fusce gravida purus eget quam vehicula facilisis at eu sapien. Donec nec quam ante, sed iaculis elit. Aliquam tempus scelerisque cursus. 
 </p>
-<?php echo 'foo'; ?>

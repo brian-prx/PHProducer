@@ -22,6 +22,7 @@
    * App constants
    */
   define( 'ROOT_DIR', '/PHProducer/' );
-  define( 'MOD_DIR', ROOT_DIR . 'modules/' );
-  define( 'CNFG_DIR', ROOT_DIR . 'config/' );
+  define( 'MOD_DIR', 'modules/' );
+  define( 'CNFG_DIR', 'config/' );
+  define( 'VIEW_DIR', ROOT_DIR . 'views/' );
   define( 'DEBUG_LEVEL', 1 );

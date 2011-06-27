@@ -20,6 +20,8 @@
     
     var $db_link = null;
     
+    var $db_select = null;
+    
     /**
      * 
      * Constuctor
@@ -47,7 +49,8 @@
         $this->db_link = mysql_connect( $this->db_host, $this->db_user, $this->db_pass );
         
         if ( is_resource( $this->db_link ) && !empty( $this->db_name ) )
-          if ( mysql_select_db( $this->db_name, $this->db_link ) );
+          $this->db_select = mysql_select_db( $this->db_name, $this->db_link );
+            
       }
       catch( Exception $e )
       {

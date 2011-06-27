@@ -12,10 +12,8 @@
       
       <div id="left">
         <div id="left_bar" class="rounded gradient">
-          <a href='<?php echo ROOT_DIR; ?>'>home</a><br />
-          <a href='<?php echo ROOT_DIR; ?>cpanel'>control panel</a><br />
-          <a href='<?php echo ROOT_DIR; ?>about'>about</a><br />
-          <a href='<?php echo ROOT_DIR; ?>contact'>contact</a><br />
+          <a href='<?php echo ROOT_DIR; ?>overview'>Overview</a><br />
+          <a href='<?php echo ROOT_DIR; ?>cpanel'>Control Panel</a><br />
         </div><!-- End left bar -->
       </div>
 

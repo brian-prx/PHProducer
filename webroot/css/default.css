@@ -33,11 +33,23 @@ div#left_bar {
 }
 
 div#content {
-	padding: 1em;
+	margin: 10px;
 }
 
 div#footer {
 	clear:both;
+}
+
+div.error {
+	background-color: red;
+}
+
+div.warning {
+	background-color: yellow;
+}
+
+div.pass {
+	background-color: #38F247;
 }
 
 .rounded {

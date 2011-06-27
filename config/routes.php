@@ -19,5 +19,10 @@
       'controller' => 'Pages',
       'method' => 'display',
       'params' => 'contact'
+    ),
+    "/overview" => array(
+      'controller' => 'Pages',
+      'method' => 'display',
+      'params' => 'overview'
     )
   );
