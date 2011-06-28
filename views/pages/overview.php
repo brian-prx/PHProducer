@@ -7,7 +7,7 @@
 <?php if ( file_exists( CNFG_DIR . 'db.php' ) && !$controller->Mysql->db_select ) { ?>
 <div class="warning rounded">
   <p><?php echo 'Could not select database: ' . $controller->Mysql->db_name . '.'; ?></p>
-  <p>Check that database exists or create it <a href=''>here</a></p>
+  <p>Check that database exists or create it <a href='<?php ROOT_DIR; ?>create_db'>here</a></p>
   <img src="webroot/images/close_button.gif" />
 </div>
 <?php } ?>

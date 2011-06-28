@@ -24,5 +24,10 @@
       'controller' => 'Pages',
       'method' => 'display',
       'params' => 'overview'
+    ),
+    "/create_db" => array(
+      'controller' => 'Pages',
+      'method' => 'display',
+      'params' => 'create_db'
     )
   );

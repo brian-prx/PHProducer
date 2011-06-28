@@ -58,6 +58,12 @@
       }
     }
     
+    /**
+     * 
+     * Check that a database exists
+     * 
+     * @param string $name
+     */
     function db_exists( $name )
     {
       try
@@ -70,9 +76,57 @@
       }
     }
     
+    /**
+     * 
+     * Create a new database
+     * 
+     * @param string $name
+     * @param boolean $override
+     * @param string $collation
+     */
+    function create_db( $name, $override = false, $collation = 'latin1_swedish_ci'  )
+    {
+      try
+      {
+        if ( $this->db_exists( $name ) )
+          return 'Database ' . $name . ' exists!';
+        
+        $sql = 'CREATE DATABASE ';
+        if ( !$override )
+          $sql .= 'IF NOT EXISTS ';
+        $sql .= $name;// . ' COLLATION=' . $collation;
+
+        if ( $this->query( $sql ) )
+          $result = 'Database ' . $name . ' successfully created.';
+        else
+          $result = 'Unable to create database ' . $name;
+      }
+      catch( Exception $e )
+      {
+        throw $e;
+      }
+      
+      return $result;
+    }
+    
+    /**
+     * 
+     * Execute a MySQL statement
+     * 
+     * @param string $sql
+     */
     function query( $sql )
     {
+      try
+      {
+        $result = mysql_query( $sql, $this->db_link );
+      }
+      catch( Exception $e )
+      {
+        throw $e;
+      }
       
+      return $result;
     }
     
     function insert( $data )

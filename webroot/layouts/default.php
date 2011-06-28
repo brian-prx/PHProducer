@@ -28,10 +28,10 @@
       	<h2>PHProducer footer</h2>
       </div>
       
-      <?php if ( is_object( $this->Debugger ) ) { ?>
+      <?php if ( is_object( $controller->Debugger ) ) { ?>
         <div id="debugger" class="rounded gradient">
           <h2>Debugger</h2>
-          <?php echo $this->Debugger->debug(); ?>
+          <?php echo $controller->Debugger->debug(); ?>
         </div><!-- End debugger -->
       <?php } ?>
     </div><!-- End wrapper -->

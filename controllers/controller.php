@@ -14,6 +14,8 @@
     
     var $View = null;
     
+    var $data = null;
+    
     /**
      * 
      * Controller constructor
@@ -29,6 +31,20 @@
           if ( class_exists( $Module ) )
             $this->{$Module} = Module::load( $Module );
         }
+        
+      $this->add_data();
+    }
+    
+    /**
+     * 
+     * Populate controller's form data
+     * 
+     */
+    function add_data()
+    {
+      if ( !empty( $_POST ) ) $this->data = $_POST;
+
+      $this->Debugger->add_var( $this->data );
     }
     
     /**

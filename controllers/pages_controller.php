@@ -21,8 +21,21 @@
       switch ( $page )
       {
         case 'cpanel':
-          $results['mysql_db'] = ( $this->Mysql->db_exists( $this->Mysql->db_name ) ) ? $this->Mysql->db_name : false;
-          $results = array_merge( $results, array( 'db_link' => $this->Mysql->db_link ) );
+          $results = true;
+          break;
+          
+        case 'create_db':
+          if ( !empty( $this->data ) )
+          {
+            try
+            {
+              $results = $this->Mysql->create_db( $this->data['db_name'] );
+            }
+            catch( Exception $e )
+            {
+              throw $e;
+            }
+          }
           break;
           
         default:
@@ -34,6 +47,5 @@
         
       return $results;
     }
-    
   }
 ?>
