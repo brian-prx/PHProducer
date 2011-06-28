@@ -8,6 +8,7 @@
 <div class="warning rounded">
   <p><?php echo 'Could not select database: ' . $controller->Mysql->db_name . '.'; ?></p>
   <p>Check that database exists or create it <a href=''>here</a></p>
+  <img src="webroot/images/close_button.gif" />
 </div>
 <?php } ?>
 

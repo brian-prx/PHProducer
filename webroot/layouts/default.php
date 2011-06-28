@@ -2,6 +2,7 @@
   <head>
   	<title>Default Layout</title>
     <link rel="stylesheet" type="text/css" href="<?php echo ROOT_DIR; ?>webroot/css/default.css" />
+    <script type="text/javascript" src="<?php echo ROOT_DIR; ?>webroot/js/jquery-1.6.1.min.js" ></script>
   </head>
   <body>
     <div id="wrapper">
@@ -18,7 +19,7 @@
       </div>
 
       <div id="right">
-        <div id="content" class="">
+        <div id="content" class="rounded gradient">
           <?php echo $layout_content; ?>
         </div><!-- End content -->
       </div>
