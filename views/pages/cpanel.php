@@ -1,1 +1,3 @@
-<h1>Control Panel</h1>
+<div>
+  <h2>Control Panel</h2>
+</div>

@@ -59,6 +59,11 @@
          * Execute the controller's action
          */
 		${$controller->__toString()} = $controller->{$this->actions['method']}( $this->actions['params'] );
+		
+		/**
+		 * Build up the bread crumb list
+		 */
+        $controller->View->bread_crumbs = array_merge( $controller->View->bread_crumbs, array( $controller->__toString() => $this->actions['method'] ) );
 
         /**
          * Load the view file content

@@ -5,6 +5,8 @@
     
     var $view_file = null;
     
+    var $bread_crumbs = array();
+    
     function __construct()
     {
       

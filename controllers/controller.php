@@ -33,6 +33,8 @@
         }
         
       $this->add_data();
+      
+      $this->View->bread_crumbs = array( 'Home' => ROOT_DIR, 'Control Panel' => ROOT_DIR . 'cpanel' );
     }
     
     /**
@@ -43,8 +45,7 @@
     function add_data()
     {
       if ( !empty( $_POST ) ) $this->data = $_POST;
-
-      $this->Debugger->add_var( $this->data );
+      if ( !empty( $_GET ) ) $this->data = $_GET;
     }
     
     /**

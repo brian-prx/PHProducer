@@ -20,7 +20,18 @@
 
       <div id="right">
         <div id="content" class="rounded gradient">
-          <?php echo $layout_content; ?>
+          <?php 
+            if ( !empty( $controller->View->bread_crumbs ) )
+            {
+              $bread_crumb_list = null;
+              foreach ( $controller->View->bread_crumbs as $link_text => $path )
+              {
+                $bread_crumb_list .= "<a href='{$path}'>" . $link_text . "</a>" . '&nbsp;&middot;&nbsp;';
+              }
+              echo substr( $bread_crumb_list, 0, -20 );
+            }
+            echo $layout_content;
+          ?>
         </div><!-- End content -->
       </div>
       
